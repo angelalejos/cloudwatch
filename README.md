@@ -24,8 +24,8 @@ cluster state and metrics that indicate the Pelias cluster is not serving its us
 Examples of monitored/alerted values include:
 
 * Elasticsearch cluster state is RED. This means Elasticsearch cannot possibly be returning valid
-  data. 
+  data.
 * Elasticsearch or Kubernetes cluster ELB latency is high. This means requests are being served to
   users too slowly
-* Elasticsearch or Kubernetes cluster (including master) in service instances is less than minimum
-  instances. This suggests that there are not enough cluster resources to work properly.
+* Elasticsearch or Kubernetes cluster (including master) `in service instances` is less than `minimum
+  instances`. This suggests that there are not enough cluster resources to work properly.

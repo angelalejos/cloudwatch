@@ -29,3 +29,7 @@ variable "environment" {
   description = "Which environment (dev, staging, prod, etc) this group of machines is for"
   default     = "dev"
 }
+
+variable "elasticsearch-cluster-role-name" {
+  description = "Enter the name of a role that _is already on_ the Elasticsearch cluster nodes. This repo will add a new policy document on to that role that allows those nodes to write to the Elasticsearch log bucket"
+}

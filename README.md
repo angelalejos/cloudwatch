@@ -30,6 +30,16 @@ Examples of monitored/alerted values include:
 * Elasticsearch or Kubernetes cluster (including master) `in service instances` is less than `minimum
   instances`. This suggests that there are not enough cluster resources to work properly.
 
+There is also support for "legacy" Pelias infrastructure that is still running as individual EC2
+instances behind Elastic Load Balancers, instead of within Kubernetes. By setting appropriate
+Terraform variables, alerts for this infrastructre can be enabled or disabled. All current Pelias
+services (API, pip-service, placeholder, and interpolation are supported individually) Similarly to other
+instances, the only alerts for these instances will be service related:
+
+* ELB healthy instance count is lower than expected
+* ELB latency is high
+* ELB 500 error count is high
+
 ## Issues
 
 * It is not yet possible to enable the group metric collection required on Auto Scaling Groups

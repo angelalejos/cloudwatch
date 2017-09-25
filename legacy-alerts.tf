@@ -15,8 +15,8 @@ resource "aws_cloudwatch_metric_alarm" "api-elb-unhealthy-host-alert" {
   alarm_description         = "This metric monitors the legacy (non-kubernetes) Pelias API ELB for unhealthy hosts. Even one unhealthy host sends a non-critical alert"
   insufficient_data_actions = []
 
-  actions_enabled = "${var.legacy_alerts_enabled ? 1 : 0}"
-  count = "${var.legacy-pelias-api-elb-name ? 1 : 0}"
+  actions_enabled = "${var.legacy_alerts_enabled  != "" ? 1 : 0}"
+  count           = "${var.legacy-pelias-api-elb-name  != "" ? 1 : 0}"
   alarm_actions   = ["${data.aws_sns_topic.non-critical-alerts.arn}"]
 
   dimensions {
@@ -36,8 +36,8 @@ resource "aws_cloudwatch_metric_alarm" "api-elb-zero-healthy-host-alert" {
   alarm_description         = "This metric monitors the legacy (non-kubernetes) Pelias API ELB for healthy hosts. It sends a critical alert if there are no healthy hosts"
   insufficient_data_actions = []
 
-  actions_enabled = "${var.legacy_alerts_enabled ? 1 : 0}"
-  count = "${var.legacy-pelias-api-elb-name ? 1 : 0}"
+  actions_enabled = "${var.legacy_alerts_enabled  != "" ? 1 : 0}"
+  count           = "${var.legacy-pelias-api-elb-name  != "" ? 1 : 0}"
   alarm_actions   = ["${data.aws_sns_topic.critical-alerts.arn}"]
 
   dimensions {
@@ -58,8 +58,8 @@ resource "aws_cloudwatch_metric_alarm" "pip-elb-unhealthy-host-alert" {
   alarm_description         = "This metric monitors the legacy (non-kubernetes) Pelias PIP ELB for unhealthy hosts. Even one unhealthy host sends a non-critical alert"
   insufficient_data_actions = []
 
-  actions_enabled = "${var.legacy_alerts_enabled ? 1 : 0}"
-  count = "${var.legacy-pelias-pip-elb-name ? 1 : 0}"
+  actions_enabled = "${var.legacy_alerts_enabled  != "" ? 1 : 0}"
+  count           = "${var.legacy-pelias-pip-elb-name  != "" ? 1 : 0}"
   alarm_actions   = ["${data.aws_sns_topic.non-critical-alerts.arn}"]
 
   dimensions {
@@ -79,8 +79,8 @@ resource "aws_cloudwatch_metric_alarm" "pip-elb-zero-healthy-host-alert" {
   alarm_description         = "This metric monitors the legacy (non-kubernetes) Pelias PIP ELB for healthy hosts. It sends a critical alert if there are no healthy hosts"
   insufficient_data_actions = []
 
-  actions_enabled = "${var.legacy_alerts_enabled ? 1 : 0}"
-  count = "${var.legacy-pelias-pip-elb-name ? 1 : 0}"
+  actions_enabled = "${var.legacy_alerts_enabled  != "" ? 1 : 0}"
+  count           = "${var.legacy-pelias-pip-elb-name  != "" ? 1 : 0}"
   alarm_actions   = ["${data.aws_sns_topic.critical-alerts.arn}"]
 
   dimensions {
@@ -101,8 +101,8 @@ resource "aws_cloudwatch_metric_alarm" "placeholder-elb-unhealthy-host-alert" {
   alarm_description         = "This metric monitors the legacy (non-kubernetes) Pelias Placeholder ELB for unhealthy hosts. Even one unhealthy host sends a non-critical alert"
   insufficient_data_actions = []
 
-  actions_enabled = "${var.legacy_alerts_enabled ? 1 : 0}"
-  count = "${var.legacy-pelias-placeholder-elb-name ? 1 : 0}"
+  actions_enabled = "${var.legacy_alerts_enabled  != "" ? 1 : 0}"
+  count           = "${var.legacy-pelias-placeholder-elb-name  != "" ? 1 : 0}"
   alarm_actions   = ["${data.aws_sns_topic.non-critical-alerts.arn}"]
 
   dimensions {
@@ -122,8 +122,8 @@ resource "aws_cloudwatch_metric_alarm" "placeholder-elb-zero-healthy-host-alert"
   alarm_description         = "This metric monitors the legacy (non-kubernetes) Pelias Placeholder ELB for healthy hosts. It sends a critical alert if there are no healthy hosts"
   insufficient_data_actions = []
 
-  actions_enabled = "${var.legacy_alerts_enabled ? 1 : 0}"
-  count = "${var.legacy-pelias-placeholder-elb-name ? 1 : 0}"
+  actions_enabled = "${var.legacy_alerts_enabled  != "" ? 1 : 0}"
+  count           = "${var.legacy-pelias-placeholder-elb-name  != "" ? 1 : 0}"
   alarm_actions   = ["${data.aws_sns_topic.critical-alerts.arn}"]
 
   dimensions {
@@ -144,8 +144,8 @@ resource "aws_cloudwatch_metric_alarm" "interpolation-elb-unhealthy-host-alert" 
   alarm_description         = "This metric monitors the legacy (non-kubernetes) Pelias interpolation ELB for unhealthy hosts. Even one unhealthy host sends a non-critical alert"
   insufficient_data_actions = []
 
-  actions_enabled = "${var.legacy_alerts_enabled ? 1 : 0}"
-  count = "${var.legacy-pelias-interpolation-elb-name ? 1 : 0}"
+  actions_enabled = "${var.legacy_alerts_enabled  != "" ? 1 : 0}"
+  count           = "${var.legacy-pelias-interpolation-elb-name  != "" ? 1 : 0}"
   alarm_actions   = ["${data.aws_sns_topic.non-critical-alerts.arn}"]
 
   dimensions {
@@ -165,8 +165,8 @@ resource "aws_cloudwatch_metric_alarm" "interpolation-elb-zero-healthy-host-aler
   alarm_description         = "This metric monitors the legacy (non-kubernetes) Pelias Interpolation ELB for healthy hosts. It sends a critical alert if there are no healthy hosts"
   insufficient_data_actions = []
 
-  actions_enabled = "${var.legacy_alerts_enabled ? 1 : 0}"
-  count = "${var.legacy-pelias-interpolation-elb-name ? 1 : 0}"
+  actions_enabled = "${var.legacy_alerts_enabled  != "" ? 1 : 0}"
+  count           = "${var.legacy-pelias-interpolation-elb-name  != "" ? 1 : 0}"
   alarm_actions   = ["${data.aws_sns_topic.critical-alerts.arn}"]
 
   dimensions {

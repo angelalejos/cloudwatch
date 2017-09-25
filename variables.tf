@@ -1,11 +1,3 @@
-variable "aws_access_key" {
-  description = "The access key for the terraform user"
-}
-
-variable "aws_secret_key" {
-  description = "The secret key for the terraform user"
-}
-
 variable "aws_region" {
   description = "The AWS region to create things in."
   default     = "us-east-1"

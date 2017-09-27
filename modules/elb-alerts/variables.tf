@@ -12,12 +12,12 @@ variable "friendly-lb-name" {}
 
 variable "lb-name" {}
 
-variable "critical-alert-sns-topic-name" {
-  description = "An Amazon SNS topic (for example, a PagerDuty event endpoint) that will be used as the alarm action for CRITICAL alerts"
+variable "critical-alert-sns-topic-arn" {
+  description = "An Amazon SNS topic ARN (for example, a PagerDuty event endpoint) that will be used as the alarm action for CRITICAL alerts"
 }
 
-variable "non-critical-alert-sns-topic-name" {
-  description = "An Amazon SNS topic (for example, a PagerDuty event endpoint) that will be used as the alarm action for non-critical alerts"
+variable "non-critical-alert-sns-topic-arn" {
+  description = "An Amazon SNS topic ARN (for example, a PagerDuty event endpoint) that will be used as the alarm action for non-critical alerts"
 }
 
 variable "actions_enabled" {

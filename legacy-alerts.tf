@@ -10,11 +10,11 @@ module "api-elb-alerts" {
   environment                       = "${var.environment}"
   actions_enabled                   = "${var.legacy_alerts_enabled}"
   unhealthy-host-evaluation-periods = "${var.unhealthy-host-evaluation-periods}"
-  critical-alert-sns-topic-name     = "${var.critical-alert-sns-topic-name}"
-  non-critical-alert-sns-topic-name = "${var.non-critical-alert-sns-topic-name}"
+  critical-alert-sns-topic-arn      = "${data.aws_sns_topic.critical-alerts.arn}"
+  non-critical-alert-sns-topic-arn  = "${data.aws_sns_topic.non-critical-alerts.arn}"
 
-  friendly-lb-name                  = "API"
-  lb-name                           = "${var.legacy-pelias-api-elb-name}"
+  friendly-lb-name = "API"
+  lb-name          = "${var.legacy-pelias-api-elb-name}"
 }
 
 module "pip-elb-alerts" {
@@ -24,11 +24,11 @@ module "pip-elb-alerts" {
   environment                       = "${var.environment}"
   actions_enabled                   = "${var.legacy_alerts_enabled}"
   unhealthy-host-evaluation-periods = "${var.unhealthy-host-evaluation-periods}"
-  critical-alert-sns-topic-name     = "${var.critical-alert-sns-topic-name}"
-  non-critical-alert-sns-topic-name = "${var.non-critical-alert-sns-topic-name}"
+  critical-alert-sns-topic-arn      = "${data.aws_sns_topic.critical-alerts.arn}"
+  non-critical-alert-sns-topic-arn  = "${data.aws_sns_topic.non-critical-alerts.arn}"
 
-  friendly-lb-name                  = "PIP"
-  lb-name                           = "${var.legacy-pelias-pip-elb-name}"
+  friendly-lb-name = "PIP"
+  lb-name          = "${var.legacy-pelias-pip-elb-name}"
 }
 
 module "placeholder-elb-alerts" {
@@ -38,11 +38,11 @@ module "placeholder-elb-alerts" {
   environment                       = "${var.environment}"
   actions_enabled                   = "${var.legacy_alerts_enabled}"
   unhealthy-host-evaluation-periods = "${var.unhealthy-host-evaluation-periods}"
-  critical-alert-sns-topic-name     = "${var.critical-alert-sns-topic-name}"
-  non-critical-alert-sns-topic-name = "${var.non-critical-alert-sns-topic-name}"
+  critical-alert-sns-topic-arn      = "${data.aws_sns_topic.critical-alerts.arn}"
+  non-critical-alert-sns-topic-arn  = "${data.aws_sns_topic.non-critical-alerts.arn}"
 
-  friendly-lb-name                  = "Placeholder"
-  lb-name                           = "${var.legacy-pelias-placeholder-elb-name}"
+  friendly-lb-name = "Placeholder"
+  lb-name          = "${var.legacy-pelias-placeholder-elb-name}"
 }
 
 module "interpolation-elb-alerts" {
@@ -52,9 +52,9 @@ module "interpolation-elb-alerts" {
   environment                       = "${var.environment}"
   actions_enabled                   = "${var.legacy_alerts_enabled}"
   unhealthy-host-evaluation-periods = "${var.unhealthy-host-evaluation-periods}"
-  critical-alert-sns-topic-name     = "${var.critical-alert-sns-topic-name}"
-  non-critical-alert-sns-topic-name = "${var.non-critical-alert-sns-topic-name}"
+  critical-alert-sns-topic-arn      = "${data.aws_sns_topic.critical-alerts.arn}"
+  non-critical-alert-sns-topic-arn  = "${data.aws_sns_topic.non-critical-alerts.arn}"
 
-  friendly-lb-name                  = "Interpolation"
-  lb-name                           = "${var.legacy-pelias-interpolation-elb-name}"
+  friendly-lb-name = "Interpolation"
+  lb-name          = "${var.legacy-pelias-interpolation-elb-name}"
 }

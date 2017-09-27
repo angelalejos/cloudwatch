@@ -12,7 +12,7 @@ resource "aws_cloudwatch_metric_alarm" "elb-unhealthy-host-alert" {
 
   actions_enabled = "${var.actions_enabled  != "" ? 1 : 0}"
   count           = "${var.lb-name != "" ? 1 : 0}"
-  alarm_actions   = ["${data.aws_sns_topic.non-critical-alerts.arn}"]
+  alarm_actions   = ["${var.non-critical-alert-sns-topic-arn}"]
 
   dimensions {
     LoadBalancerName = "${var.lb-name}"
@@ -33,7 +33,7 @@ resource "aws_cloudwatch_metric_alarm" "api-elb-zero-healthy-host-alert" {
 
   actions_enabled = "${var.actions_enabled  != "" ? 1 : 0}"
   count           = "${var.lb-name != "" ? 1 : 0}"
-  alarm_actions   = ["${data.aws_sns_topic.critical-alerts.arn}"]
+  alarm_actions   = ["${var.critical-alert-sns-topic-arn}"]
 
   dimensions {
     LoadBalancerName = "${var.lb-name}"

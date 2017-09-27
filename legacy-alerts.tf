@@ -6,7 +6,7 @@
 resource "aws_cloudwatch_metric_alarm" "api-elb-unhealthy-host-alert" {
   alarm_name                = "${var.service_name}-${var.environment}-api-elb-unhealthy-host-alert"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
-  evaluation_periods        = "3"
+  evaluation_periods        = "${var.unhealthy-host-evaluation-periods}"
   metric_name               = "UnHealthyHostCount"
   namespace                 = "AWS/ELB"
   period                    = "60"
@@ -49,7 +49,7 @@ resource "aws_cloudwatch_metric_alarm" "api-elb-zero-healthy-host-alert" {
 resource "aws_cloudwatch_metric_alarm" "pip-elb-unhealthy-host-alert" {
   alarm_name                = "${var.service_name}-${var.environment}-pip-elb-unhealthy-host-alert"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
-  evaluation_periods        = "3"
+  evaluation_periods        = "${var.unhealthy-host-evaluation-periods}"
   metric_name               = "UnHealthyHostCount"
   namespace                 = "AWS/ELB"
   period                    = "60"
@@ -92,7 +92,7 @@ resource "aws_cloudwatch_metric_alarm" "pip-elb-zero-healthy-host-alert" {
 resource "aws_cloudwatch_metric_alarm" "placeholder-elb-unhealthy-host-alert" {
   alarm_name                = "${var.service_name}-${var.environment}-placeholder-elb-unhealthy-host-alert"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
-  evaluation_periods        = "3"
+  evaluation_periods        = "${var.unhealthy-host-evaluation-periods}"
   metric_name               = "UnHealthyHostCount"
   namespace                 = "AWS/ELB"
   period                    = "60"
@@ -135,7 +135,7 @@ resource "aws_cloudwatch_metric_alarm" "placeholder-elb-zero-healthy-host-alert"
 resource "aws_cloudwatch_metric_alarm" "interpolation-elb-unhealthy-host-alert" {
   alarm_name                = "${var.service_name}-${var.environment}-interpolation-elb-unhealthy-host-alert"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
-  evaluation_periods        = "3"
+  evaluation_periods        = "${var.unhealthy-host-evaluation-periods}"
   metric_name               = "UnHealthyHostCount"
   namespace                 = "AWS/ELB"
   period                    = "60"

@@ -22,6 +22,10 @@ variable "environment" {
   default     = "dev"
 }
 
+variable "pelias-elasticsearch-elb-name" {
+  description = "The full name of the ELB in front of Elasticsearch instances"
+}
+
 variable "legacy-pelias-api-elb-name" {
   description = "The full name of the ELB running the legacy Pelias API (not in kubernetes). If blank no alerts for this ELB will be created"
 }

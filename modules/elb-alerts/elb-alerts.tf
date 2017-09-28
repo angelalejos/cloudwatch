@@ -19,16 +19,16 @@ resource "aws_cloudwatch_metric_alarm" "elb-unhealthy-host-alert" {
   }
 }
 
-resource "aws_cloudwatch_metric_alarm" "api-elb-zero-healthy-host-alert" {
+resource "aws_cloudwatch_metric_alarm" "elb-healthy-host-alert" {
   alarm_name                = "${var.service_name}-${var.environment}-${var.friendly-lb-name}-elb-healthy-host-alert"
-  comparison_operator       = "LessThanOrEqualToThreshold"
+  comparison_operator       = "LessThanThreshold"
   evaluation_periods        = "3"
   metric_name               = "HealthyHostCount"
   namespace                 = "AWS/ELB"
   period                    = "60"
   statistic                 = "Minimum"
-  threshold                 = "0"
-  alarm_description         = "This metric monitors the ${var.friendly-lb-name} ELB for healthy hosts. It sends a critical alert if there are no healthy hosts"
+  threshold                 = "${var.minimum-healthy-hosts}"
+  alarm_description         = "This metric monitors the ${var.friendly-lb-name} ELB for healthy hosts. It sends a critical alert if there are not enough healthy hosts"
   insufficient_data_actions = []
 
   actions_enabled = "${var.actions_enabled  != "" ? 1 : 0}"

@@ -22,7 +22,7 @@ resource "aws_cloudwatch_metric_alarm" "elb-unhealthy-host-alert" {
 resource "aws_cloudwatch_metric_alarm" "elb-healthy-host-alert" {
   alarm_name                = "${var.service_name}-${var.environment}-${var.friendly-lb-name}-elb-healthy-host-alert"
   comparison_operator       = "LessThanThreshold"
-  evaluation_periods        = "3"
+  evaluation_periods        = "${var.healthy-host-evaluation-periods}"
   metric_name               = "HealthyHostCount"
   namespace                 = "AWS/ELB"
   period                    = "60"

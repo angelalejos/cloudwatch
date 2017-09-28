@@ -25,11 +25,17 @@ variable "actions_enabled" {
   default     = "true"
 }
 
-variable "legacy_alerts_enabled" {
-  default = "true"
-}
-
 variable "unhealthy-host-evaluation-periods" {
   description = "How many periods (which default to minutes) the unhealthy host count alerts for ELBs must be in an unacceptable state for before alerting. This should be set fairly high especailly in dev environments to avoid excessive alerts"
   default     = 10
+}
+
+variable "healthy-host-evaluation-periods" {
+  description = "How many periods (which default to minutes) the healthy host count alerts for ELBs must be in an unacceptable state for before alerting. This should be set fairly low except perhaps in dev environments, since it represents a complete service failure."
+  default     = 2
+}
+
+variable "minimum-healthy-hosts" {
+  description = "The minimum number of healthy hosts required in an ELB. Defaults to 1, but raise to a higher number if more than one is required to consider the service healthy."
+  default     = 1
 }

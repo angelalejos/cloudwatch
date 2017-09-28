@@ -22,6 +22,10 @@ variable "environment" {
   default     = "dev"
 }
 
+variable "pelias-elasticsearch-elb-name" {
+  description = "The full name of the ELB in front of Elasticsearch instances"
+}
+
 variable "legacy-pelias-api-elb-name" {
   description = "The full name of the ELB running the legacy Pelias API (not in kubernetes). If blank no alerts for this ELB will be created"
 }
@@ -49,4 +53,9 @@ variable "legacy_alerts_enabled" {
 variable "unhealthy-host-evaluation-periods" {
   description = "How many periods (which default to minutes) the unhealthy host count alerts for ELBs must be in an unacceptable state for before alerting. This should be set fairly high especailly in dev environments to avoid excessive alerts"
   default     = 10
+}
+
+variable "healthy-host-evaluation-periods" {
+  description = "How many periods (which default to minutes) the healthy host count alerts for ELBs must be in an unacceptable state for before alerting. This should be set fairly low except perhaps in dev environments, since it represents a complete service failure."
+  default     = 2
 }

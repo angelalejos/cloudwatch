@@ -10,6 +10,7 @@ module "api-elb-alerts" {
   environment                       = "${var.environment}"
   actions_enabled                   = "${var.legacy_alerts_enabled}"
   unhealthy-host-evaluation-periods = "${var.unhealthy-host-evaluation-periods}"
+  healthy-host-evaluation-periods   = "${var.healthy-host-evaluation-periods}"
   critical-alert-sns-topic-arn      = "${data.aws_sns_topic.critical-alerts.arn}"
   non-critical-alert-sns-topic-arn  = "${data.aws_sns_topic.non-critical-alerts.arn}"
 
@@ -24,6 +25,7 @@ module "pip-elb-alerts" {
   environment                       = "${var.environment}"
   actions_enabled                   = "${var.legacy_alerts_enabled}"
   unhealthy-host-evaluation-periods = "${var.unhealthy-host-evaluation-periods}"
+  healthy-host-evaluation-periods   = "${var.healthy-host-evaluation-periods}"
   critical-alert-sns-topic-arn      = "${data.aws_sns_topic.critical-alerts.arn}"
   non-critical-alert-sns-topic-arn  = "${data.aws_sns_topic.non-critical-alerts.arn}"
 
@@ -38,6 +40,7 @@ module "placeholder-elb-alerts" {
   environment                       = "${var.environment}"
   actions_enabled                   = "${var.legacy_alerts_enabled}"
   unhealthy-host-evaluation-periods = "${var.unhealthy-host-evaluation-periods}"
+  healthy-host-evaluation-periods   = "${var.healthy-host-evaluation-periods}"
   critical-alert-sns-topic-arn      = "${data.aws_sns_topic.critical-alerts.arn}"
   non-critical-alert-sns-topic-arn  = "${data.aws_sns_topic.non-critical-alerts.arn}"
 
@@ -52,6 +55,7 @@ module "interpolation-elb-alerts" {
   environment                       = "${var.environment}"
   actions_enabled                   = "${var.legacy_alerts_enabled}"
   unhealthy-host-evaluation-periods = "${var.unhealthy-host-evaluation-periods}"
+  healthy-host-evaluation-periods   = "${var.healthy-host-evaluation-periods}"
   critical-alert-sns-topic-arn      = "${data.aws_sns_topic.critical-alerts.arn}"
   non-critical-alert-sns-topic-arn  = "${data.aws_sns_topic.non-critical-alerts.arn}"
 

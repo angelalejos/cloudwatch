@@ -1,0 +1,24 @@
+[
+  {
+    "name": "elasticsearch-health-logger",
+    "image": "pelias/elasticsearch-health-logger",
+    "memory": 100,
+    "cpu": 100,
+    "essential": true,
+    "environment": [{
+      "name": "ELASTICSEARCH_HOST",
+      "value": "${elasticsearch_host}"
+    }, {
+      "name": "environment",
+      "value": "dev"
+    }],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_group}",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "pelias"
+      }
+    }
+  }
+]

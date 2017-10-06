@@ -13,3 +13,17 @@ module "elasticsearch-elb-alerts" {
   friendly-lb-name = "Elasticsearch"
   lb-name          = "${var.pelias-elasticsearch-elb-name}"
 }
+
+module "elasticsearch-index-alerts" {
+  source = "./modules/es-index-alerts"
+
+  service_name = "${var.service_name}"
+  environment  = "${var.environment}"
+
+  aws_vpc_id = "${var.aws_vpc_id}"
+
+  elasticsearch_host = "${var.pelias-elasticsearch-url}"
+
+  critical-alert-sns-topic-arn     = "${data.aws_sns_topic.critical-alerts.arn}"
+  non-critical-alert-sns-topic-arn = "${data.aws_sns_topic.non-critical-alerts.arn}"
+}

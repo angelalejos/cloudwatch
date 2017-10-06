@@ -22,6 +22,8 @@ variable "environment" {
   default     = "dev"
 }
 
+variable "pelias-elasticsearch-url" {}
+
 variable "pelias-elasticsearch-elb-name" {
   description = "The full name of the ELB in front of Elasticsearch instances"
 }
